@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require('fs');
 
 http.createServer((request, response) => {
-  if(request.url === "/a") {
+  if(request.url === "/other") {
     fs.readFile('./index.html', function (err, htmlFile) {
       if(err) console.log(err);
       response.writeHead(200, 'testing', {'Content-Type': 'text/html'});
@@ -11,7 +11,7 @@ http.createServer((request, response) => {
     })
   }else {
     response.writeHead(200, 'testing', {'Content-Type': 'text/html'});
-    response.write('<h1>sadsad</h1>');
+    response.write('<h1>This is default page</h1>');
     response.end();
   }
     
